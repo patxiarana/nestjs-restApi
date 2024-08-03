@@ -14,4 +14,14 @@ export class BookService {
         const books = await this.bookModel.find();
         return books;
     }
+    async create(book: Book): Promise<Book> { 
+        const res = await this.bookModel.create(book);
+        return res; 
+    }
+
+    async findById(id: string): Promise<Book> { 
+        const book = await this.bookModel.findById(id);
+        return book; 
+    }
 }
+
