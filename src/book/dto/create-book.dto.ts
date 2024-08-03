@@ -1,10 +1,32 @@
-import { Category } from "../schemas/book.schema";
-
-
-export class CreateBoockDTO {
+import {
+    IsEmpty,
+    IsEnum,
+    IsNotEmpty,
+    IsNumber,
+    IsString,
+  } from 'class-validator';
+  import { User } from '../../auth/schemas/user.schema';
+  import { Category } from '../schemas/book.schema';
+  
+  export class CreateBookDTO {
+    @IsNotEmpty()
+    @IsString()
     readonly title: string;
+  
+    @IsNotEmpty()
+    @IsString()
     readonly description: string;
+  
+    @IsNotEmpty()
+    @IsString()
     readonly author: string;
-    readonly price :number;
-    readonly category : Category; 
-}
+  
+    @IsNotEmpty()
+    @IsNumber()
+    readonly price: number;
+  
+    @IsNotEmpty()
+    @IsEnum(Category, { message: 'Please enter correct category.' })
+    readonly category: Category;
+
+  }

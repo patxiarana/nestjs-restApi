@@ -23,7 +23,7 @@ import { config } from 'process';
         }
       }
     }),
-    MongooseModule.forFeature([{name:'user' , schema: UserSchema}])
+    MongooseModule.forFeature([{name:'User' , schema: UserSchema}])
   ],
   controllers: [AuthController],
   providers: [AuthService]
