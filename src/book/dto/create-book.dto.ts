@@ -29,4 +29,6 @@ import {
     @IsEnum(Category, { message: 'Please enter correct category.' })
     readonly category: Category;
 
+    @IsEmpty({message: "You cannot pass user id"})
+    readonly user: User;
   }
